@@ -1,0 +1,1 @@
+Testing Socket.IO example chat application using socket.io-client, mocha and should.js.
