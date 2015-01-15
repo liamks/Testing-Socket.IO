@@ -1,0 +1,28 @@
+{
+  "name": "Testing-Socket.IO",
+  "version": "1.0.0",
+  "description": "[Testing Socket.IO with Mocha and Should.js](http://liamkaufman.com/blog/2012/01/28/testing-socketio-with-mocha-should-and-socketio-client/)",
+  "main": "chat-server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liamks/Testing-Socket.IO.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liamks/Testing-Socket.IO/issues"
+  },
+  "homepage": "https://github.com/liamks/Testing-Socket.IO",
+  "dependencies": {
+    "mocha": "^2.1.0",
+    "should": "^4.6.0",
+    "socket.io": "^1.2.1",
+    "socket.io-client": "^1.2.1"
+  }
+}
