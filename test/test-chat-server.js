@@ -1,5 +1,8 @@
 var should = require('should');
-var io = require('socket.io-client');
+var io = require('socket.io-client'),
+    server = require('../chat-server');
+
+
 
 var socketURL = 'http://0.0.0.0:5000';
 
@@ -23,7 +26,7 @@ describe("Chat Server",function(){
     });
 
     client.on('new user',function(usersName){
-      usersName.should.be.a('string');
+      usersName.should.be.type('string');
       usersName.should.equal(chatUser1.name + " has joined.");
       /* If this client doesn't disconnect it will interfere 
       with the next test */
@@ -35,9 +38,9 @@ describe("Chat Server",function(){
   /* Test 2 - Two Users */
   it('Should broadcast new user to all users', function(done){
     var client1 = io.connect(socketURL, options);
-    
+
     client1.on('connect', function(data){
-      client1.emit('connection name', chatUser1); 
+      client1.emit('connection name', chatUser1);
 
       /* Since first client is connected, we connect
       the second client. */
@@ -63,7 +66,7 @@ describe("Chat Server",function(){
         client1.disconnect();
         done();
       }
-    }); 
+    });
   });
 
   /* Test 3 - User sends a message to chat room. */
@@ -78,7 +81,7 @@ describe("Chat Server",function(){
         client.disconnect();
         messages++;
         if(messages === 3){
-          done(); 
+          done();
         };
       });
     };
@@ -144,7 +147,7 @@ describe("Chat Server",function(){
 
         client3.on('connect', function(data){
           client3.emit('connection name', chatUser3);
-          client3.emit('private message', message) 
+          client3.emit('private message', message)
         });
       });
     });
